@@ -1,0 +1,46 @@
+# Security checks for the timdixon82 profile repository.
+#
+# This repository is Markdown-only with no package dependencies.
+# The workflow therefore runs Semgrep only:
+#
+#   - Semgrep (token-free): scans for hardcoded secrets and sensitive
+#     patterns using the default ruleset. semgrep scan is used, not
+#     semgrep ci; the ci subcommand requires a SEMGREP_APP_TOKEN and is
+#     not used here (team standing rule: no paid third-party tokens in CI).
+#
+#   - Trivy is omitted: it scans for vulnerable package dependencies.
+#     This repository has none.
+#
+#   - dependency-review is omitted: it requires GitHub Advanced Security,
+#     which may not be available, and has no dependencies to review.
+#
+# The deliberate divergence from the full three-job project scaffold is
+# noted in docs/security-review.md.
+#
+# No untrusted GitHub event input is used in any run: step.
+#
+# Action versions were verified against GitHub and pinned to commit SHAs
+# on 2026-05-30. The version tag is in the trailing comment.
+
+name: Security
+on:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"  # weekly, Monday morning
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    name: Semgrep
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - name: Semgrep
+        # semgrep scan runs locally with the default ruleset and exits non-zero
+        # on any finding. semgrep ci requires a SEMGREP_APP_TOKEN and uses
+        # cloud-based CI mode; it is not used here to avoid token dependency.
+        run: |
+          pip install semgrep
+          semgrep scan --config p/default --error

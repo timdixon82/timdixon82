@@ -1,6 +1,6 @@
 # Hello, I'm Tim
 
-I am a bline nerd and accessibility advocate. I build small browser-based tools and fun projects. Everything stricing to ship projects that meet the Web Content Accessibility Guidelines 2.2 at AAA conformance.
+I am a project lead and accessibility advocate. I build small browser-based tools and write public documentation that is screen-reader friendly by default. Everything I ship targets the Web Content Accessibility Guidelines 2.2 at AAA conformance.
 
 I work with a small Claude Code agent team that turns my requests into shipped code. The team's setup and standards live in [Claude-Agent-Repo-Template](https://github.com/timdixon82/Claude-Agent-Repo-Template).
 
