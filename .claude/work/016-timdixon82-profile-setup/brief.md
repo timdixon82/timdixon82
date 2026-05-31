@@ -4,7 +4,7 @@
 
 Adopt and document `timdixon82/timdixon82`, the GitHub profile-holding repository (conventionally where a `README.md` becomes the visitor-facing page on the user's GitHub profile). As of 2026-05-23 the repository is empty (no `README.md`, no files other than `.git`). This work registers the project in the team wiki, parks the work folder, and surfaces to Tim that the profile-README opportunity is unused.
 
-- Status: parked
+- Status: closed
 - Branch: none
 - Priority: 13
 - Blockers: None
