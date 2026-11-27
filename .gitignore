@@ -58,3 +58,9 @@ Inputs/
 
 # understand-anything generated knowledge graph and fingerprints — generated artefact, not for commit.
 .understand-anything/
+
+# Local audit trail written by a team hook, not for the repository
+/lint.md
+
+# Local audit trail written by a team hook, not for the repository
+.claude/.status-rebuild.lock
